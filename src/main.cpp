@@ -61,6 +61,18 @@ int main(int argc, const char **argv)
     float end_x;
     float end_y; 
 
+    std::cout << "Type a number between 0 and 100: ";
+    std::cin >> start_x;
+    
+    std::cout << "Type another number in the same range: ";
+    std::cin >> start_y;
+
+    std::cout << "Type another number in the same range: ";
+    std::cin >> end_x;
+
+    std::cout << "Type another number in the same range: ";
+    std::cin >> end_y;
+
     // Build Model.
     RouteModel model{osm_data};
 
