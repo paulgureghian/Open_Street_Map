@@ -56,6 +56,11 @@ int main(int argc, const char **argv)
     // user input for these values using std::cin. Pass the user input to the
     // RoutePlanner object below in place of 10, 10, 90, 90.
 
+    float start_x;
+    float start_y;
+    float end_x;
+    float end_y; 
+
     // Build Model.
     RouteModel model{osm_data};
 
