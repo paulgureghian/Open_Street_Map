@@ -16,9 +16,7 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, floa
 
     end_node =  &(m_Model.FindClosestNode(end_x, end_y));    
     std::cout << "End node value is: " << end_node <<'\n';
-
 }
-
 
 // TODO 3: Implement the CalculateHValue method.
 // Tips:
@@ -27,6 +25,10 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, floa
 
 float RoutePlanner::CalculateHValue(RouteModel::Node const *node) {
 
+    float h = node->distance(*end_node);
+    std::cout << "The value of h is: "  << h << '\n';
+            
+    return h;          
 }
 
 
