@@ -6,3 +6,4 @@ build/
 bin/
 lib/
 settings.json
+.gitignore
