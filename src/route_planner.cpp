@@ -40,15 +40,15 @@ float RoutePlanner::CalculateHValue(RouteModel::Node const *node) {
 
 void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
 
-    current_node.FindNeighbors();
+    current_node->FindNeighbors();
 
-    for (int i = 0; i < current_node.neighbors.size(); i++) {
+    for (int i = 0; i < current_node->neighbors.size(); i++) {
 
-        current_node.neighbors[i].h_value = &CalculateHValue(current_node);
-        current_node.neighbors[i].g_value = i;
+        current_node->neighbors[i].h_value = &CalculateHValue(current_node);
+        current_node->neighbors[i].g_value = i;
 
-        open_list.push_back(current_node.neighbors[i]);
-        current_node.visited = true;
+        open_list.push_back(current_node->neighbors[i]);
+        current_node->visited = true;
 
     }
 }
