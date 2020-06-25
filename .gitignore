@@ -5,3 +5,4 @@ test.cpp
 build/
 bin/
 lib/
+settings.json
