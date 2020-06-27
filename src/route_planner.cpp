@@ -25,10 +25,10 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, floa
 
 float RoutePlanner::CalculateHValue(RouteModel::Node const *node) {
 
-    float h = node->distance(*end_node);
-    std::cout << "The value of h is: "  << h << '\n';
+    float h_value = node->distance(*end_node);
+    std::cout << "The value of h_value is: "  << h_value << '\n';
             
-    return h;          
+    return h_value;          
 }
 
 // TODO 4: Complete the AddNeighbors method to expand the current node by adding all unvisited neighbors to the open list.
@@ -42,15 +42,15 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
 
     current_node->FindNeighbors();
 
-    for (int i = 0; i < current_node->neighbors.size(); i++) {
+    for (auto neighbor : current_node->neighbors) {
 
-        current_node->neighbors[i]->parent;
-        current_node->neighbors[i]->h_value = CalculateHValue(current_node);
-        current_node->neighbors[i]->g_value + distance() = i;
-
-        open_list.push_back(current_node->neighbors[i]);
-        current_node->visited = true;
-
+        neighbor->parent = current_node;
+        neighbor->h_value = CalculateHValue(neighbor);        
+        neighbor->g_value = current_node->g_value + current_node->distance(*neighbor);
+      
+             
+        open_list.emplace_back(neighbor);
+        neighbor->visited = true;
     }
 }
 
