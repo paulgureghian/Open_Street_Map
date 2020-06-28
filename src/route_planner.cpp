@@ -69,6 +69,8 @@ RouteModel::Node *RoutePlanner::NextNode() {
     });
 
     RouteModel::Node* lowest_node = open_list.front();
+    std::cout << "The lowest node is: " << lowest_node;
+
     open_list.erase(open_list.begin());
     
     return lowest_node;
