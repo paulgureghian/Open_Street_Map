@@ -47,7 +47,8 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
         neighbor->parent = current_node;
         neighbor->h_value = CalculateHValue(neighbor);        
         neighbor->g_value = current_node->g_value + current_node->distance(*neighbor);
-      
+
+        std::cout << "The value of neighbor is: " << neighbor << '\n';      
              
         open_list.emplace_back(neighbor);
         neighbor->visited = true;
@@ -69,7 +70,7 @@ RouteModel::Node *RoutePlanner::NextNode() {
     });
 
     RouteModel::Node* lowest_node = open_list.front();
-    std::cout << "The lowest node is: " << lowest_node;
+    std::cout << "The lowest node is: " << lowest_node << '\n';
 
     open_list.erase(open_list.begin());
     
