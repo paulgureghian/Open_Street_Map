@@ -97,17 +97,18 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
         const RouteModel::Node parent = *(current_node->parent);            
         
         distance += current_node->distance(parent);
-        std::cout << "The distance value is: " << distance << '\n';
+        std::cout << "The float value of distance is: " << distance << '\n';
 
         current_node = current_node->parent;
         std::cout << "The value of curent_node is: " << current_node << '\n';
     }
     
     distance *= m_Model.MetricScale(); // Multiply the distance by the scale of the map to get meters.
+    std::cout << "The meter value of distance is: "  << distance << '\n';
+         
+    path_found.emplace_back(*current_node);     
     return path_found;
-
 }
-
 
 // TODO 7: Write the A* Search algorithm here.
 // Tips:
