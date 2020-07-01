@@ -101,7 +101,7 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
         
         else {
 
-            distance = current_node->distance(*current_node->parent);
+            distance += current_node->distance(*current_node->parent);
             path_found.insert(path_found.begin(), *current_node);
             current_node = current_node->parent;
 
@@ -127,6 +127,7 @@ void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node = nullptr;
 
     AddNeighbors(start_node);
+    start_node->visited = true;
 
     while (current_node != end_node) {
 
